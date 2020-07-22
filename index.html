@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dicee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Refresh Me</h1>
+      <h3 class="result"></h3>
+      <div class="dice">
+        <p>Player 1</p>
+        <img class="img1" src="" />
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img class="img2" src="" />
+      </div>
+    </div>
+  </body>
+
+  <footer>
+    www 🎲 abhishekchohan 🎲 com
+  </footer>
+  <script>
+    const player1_dice = Math.round(Math.random() * 5 + 1);
+    const player2_dice = Math.round(Math.random() * 5 + 1);
+    document
+      .querySelector(".img1")
+      .setAttribute("src", `images/dice${player1_dice}.png`);
+    document
+      .querySelector(".img2")
+      .setAttribute("src", `images/dice${player2_dice}.png`);
+    const result =
+      "Congrats Player" +
+      (player1_dice !== player2_dice
+        ? player1_dice > player2_dice
+          ? " 1, you win !"
+          : " 2, you win !"
+        : "s. Its a Tie. Nobody Lost !!");
+    console.log(result);
+    document.querySelector(".result").textContent = result;
+  </script>
+</html>
